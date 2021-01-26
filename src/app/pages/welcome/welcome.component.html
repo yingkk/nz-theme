@@ -1,0 +1,18 @@
+<div class="welcome">
+  <div class="welcome-ops">
+    <nz-radio-group [(ngModel)]="radioValue" (ngModelChange)="onRadioChange($event)">
+      <label nz-radio-button nzValue="A">Hangzhou</label>
+      <label nz-radio-button nzValue="B">Shanghai</label>
+      <label nz-radio-button nzValue="C">Beijing</label>
+      <label nz-radio-button nzValue="D">Chengdu</label>
+    </nz-radio-group>
+  </div>
+  <div class="welcome-content">
+    <ng-container [ngSwitch]="radioValue">
+      <ng-container *ngSwitchCase="'B'">this is Shanghai content </ng-container>
+      <ng-container *ngSwitchCase="'C'">this is Beijing content </ng-container>
+      <ng-container *ngSwitchCase="'D'">this is Chengdu content </ng-container>
+      <ng-container *ngSwitchDefault>this is Hangzhou content </ng-container>
+    </ng-container>
+  </div>
+</div>
