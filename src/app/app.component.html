@@ -1,10 +1,6 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
@@ -38,15 +34,17 @@
     <nz-header>
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <i class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
-        <span class="header-trigger" (click)="toggleTheme()">
+        <nz-select [(ngModel)]="selectedTheme" (ngModelChange)="handleChange($event)">
+          <nz-option nzValue="default" nzLabel="默认主题"></nz-option>
+          <nz-option nzValue="dark" nzLabel="暗黑主题"></nz-option>
+          <nz-option nzValue="first" nzLabel="自定义主题"></nz-option>
+        </nz-select>
+        <!-- <span class="header-trigger" (click)="toggleTheme()">
           <i class="trigger" nz-icon nzType="skin" nzTheme="outline"></i>
-        </span>
-        <button nz-button nzType="primary">Primary</button>
+        </span> -->
+       
       </div>
     </nz-header>
     <nz-content>

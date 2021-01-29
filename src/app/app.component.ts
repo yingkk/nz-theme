@@ -8,10 +8,15 @@ import { ThemeService } from './theme.service';
 })
 export class AppComponent {
   isCollapsed = false;
+  selectedTheme = "default";
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService) { }
 
-  toggleTheme(): void {
-    this.themeService.toggleTheme().then();
+  handleChange($event: string) {
+    this.themeService.activeTheme($event).then();
   }
+
+  // toggleTheme(): void {
+  //   this.themeService.toggleTheme().then();
+  // }
 }
